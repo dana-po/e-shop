@@ -1,3 +1,7 @@
+import {cart} from '../data/cart.js';
+
+
+
 // loop through
 let productsHTML = '';
 //from products.js
