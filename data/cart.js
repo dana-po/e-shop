@@ -1,4 +1,13 @@
-export let cart = JSON.parse(localStorage.getItem('cart'));
+export let cart;
+
+function saveToStorage() {
+  //'first string is the name of var to save','second string data we want to save'
+  //localStorage can only save strings
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+loadFromStorage();
+export function loadFromStorage(){
+  cart = JSON.parse(localStorage.getItem('cart'));
 if (!cart) {
   cart = [
     {
@@ -13,12 +22,8 @@ if (!cart) {
     },
   ];
 }
-
-function saveToStorage() {
-  //'first string is the name of var to save','second string data we want to save'
-  //localStorage can only save strings
-  localStorage.setItem('cart', JSON.stringify(cart));
 }
+
 
 export function addToCart(productId) {
   let matchingItem;
